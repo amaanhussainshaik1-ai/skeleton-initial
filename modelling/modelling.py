@@ -1,6 +1,8 @@
 from model.randomforest import RandomForest
 from model.svm import SVM
 from model.logistic_regression import LogisticReg
+from model.adaboost import AdaBoost
+from model.gradient_boosting import GradientBoosting
 
 from sklearn.metrics import accuracy_score, f1_score
 
@@ -8,6 +10,8 @@ MODEL_REGISTRY = {
     'Random Forest'       : RandomForest,
     'SVM'                 : SVM,
     'Logistic Regression' : LogisticReg,
+    'AdaBoost'            : AdaBoost,
+    'Gradient Boosting'   : GradientBoosting,
 }
 
 def run_single_model(ModelClass, name: str, data):
@@ -79,9 +83,9 @@ def print_comparison_table(all_results: dict):
             cell = f"F1={f1:.2f} Acc={acc:.2f}"
             row += f"  {cell:<{num_w*2-2}}"
         print(row)
-
+ 
     print("=" * len(sep))
-
+ 
     # Best model per chain level
     print("\n  >> Best model per level (by weighted F1):")
     for lvl in chain_levels:

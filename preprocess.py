@@ -45,11 +45,10 @@ def de_duplication(df: pd.DataFrame) -> pd.DataFrame:
 # 3. Noise Removal
 
 def noise_remover(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    - Drop rows where key label columns are NaN.
-    - Strip whitespace from text and label columns.
-    - Remove classes that appear fewer than MIN_CLASS_SAMPLES times.
-    """
+    # Drop rows where key label columns are NaN.
+    # Strip whitespace from text and label columns.
+    # Remove classes that appear fewer than MIN_CLASS_SAMPLES times.
+    
     df = df.dropna(subset=["y2"]).copy()
     df['y3'] = df['y3'].fillna('Unknown')
     df['y4'] = df['y4'].fillna('Unknown')

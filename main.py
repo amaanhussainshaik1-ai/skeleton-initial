@@ -74,5 +74,3 @@ if __name__ == '__main__':
  
     # 4. Print the full comparison table
     print_comparison_table(all_results)
- 
-
